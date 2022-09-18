@@ -1,0 +1,28 @@
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: false
+      addresses: 
+       - 192.168.56.3/24
+#       - 192.168.88.226/24 
+#      gateway4: 192.168.56.1
+#      gateway4: 192.168.88.1
+      nameservers:
+        addresses: [ 8.8.8.8 ]
+      routes:
+#      - to: 192.168.88.0/24
+#        via: 192.168.56.1
+      - to: default
+        via: 192.168.56.1
+#        metric: 200 
+#      - to: 192.168.56.3
+#        via: 192.168.88.226
+#        metric: 300
+
+#    enp0s8: 
+#      dhcp4: false
+#      addresses: [192.168.88.226/24]
+#      gateway4: 192.168.88.1
+  version: 2
+
