@@ -19,6 +19,8 @@ sudo ssh osboxes@192.168.56.4
 sudo apt-get update -y
 sudo apt-get install -y ansible
 
+sudo apt-get install -y ansible-core
+
 git clone https://github.com/vladskvortsov/ansible-drupal-deploy.git
 
 sudo ansible-playbook playbook.yml -i ~/ansible-drupal-deploy/hosts.ini -u root

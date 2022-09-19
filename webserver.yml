@@ -1,8 +1,5 @@
 ---
-- hosts: webserver
+- hosts: web
   become: true
   roles:
-   - add-user-and-ssh-key
-   - docker-install
-   - deploy-drupal-container
-   - add-domain-name
+   - webservers

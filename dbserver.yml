@@ -1,7 +1,5 @@
 ---
-- hosts: dbserver
+- hosts: db
   become: true
   roles:
-   - add-user-and-ssh-key
-   - docker-install
-   - deploy-mysql-container
+   - dbservers
