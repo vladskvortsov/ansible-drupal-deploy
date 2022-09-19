@@ -8,7 +8,7 @@ apt-get install -y sudo wget nano curl gpg apt-utils
 sudo add-apt-repository -y ppa:ondrej/php
 sudo add-apt-repository -y ppa:ondrej/nginx
 
-#sudo apt-get install --force-yes -qq nginx
+sudo apt-get install -y -q nginx
 
 sudo /etc/init.d/nginx start
 

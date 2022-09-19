@@ -11,6 +11,3 @@ network:
 ' > /etc/netplan/00-installer-config.yaml
 
 sudo netplan apply
-
-echo 'db' > /etc/hostname
-

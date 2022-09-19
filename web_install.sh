@@ -16,12 +16,12 @@ sudo ssh-keygen
 sudo ssh-copy-id osboxes@192.168.56.4
 sudo ssh osboxes@192.168.56.4
 
-echo 'web' > /etc/hostname
-
 sudo apt-get update -y
 sudo apt-get install -y ansible
 
+git clone https://github.com/vladskvortsov/ansible-drupal-deploy.git
 
+sudo ansible-playbook playbook.yml -i ~/ansible-drupal-deploy/hosts.ini -u root
 
-sudo ansible-playbook playbook.yml -i /home/osboxes/hosts  -l server1 -u root
-
+#ssh -p 2000 osboxes@192.168.88.223
+#ssh -p 2020 osboxes@192.168.88.223
