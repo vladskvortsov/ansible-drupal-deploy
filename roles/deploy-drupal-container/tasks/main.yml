@@ -1,0 +1,19 @@
+---
+- name: deploy-drupal-container
+  community.docker.docker_image:
+    name: vladskvortsov/drupal
+    build:
+      path: ./
+      nocache: true
+#    pull: true
+    tag: latest
+    source: build
+    force_source: true
+#    state: started
+#    networks:
+#      - name: "{{ docker_network }}"
+#        ipv4_address: 192.168.88.214
+#        links:
+#          - "{{ db_alias }}"
+#    ports:
+#      - "80:80"

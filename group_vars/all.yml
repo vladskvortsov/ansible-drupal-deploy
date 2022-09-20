@@ -1,0 +1,3 @@
+---
+db_alias: db
+docker_network: drupal_net

@@ -1,5 +1,10 @@
 ---
 - hosts: db
   become: true
+  connection: local 
   roles:
-   - dbservers
+     - add-user-and-ssh-key
+     - docker-install
+     - deploy-mysql-container
+     - add-hostname-db
+

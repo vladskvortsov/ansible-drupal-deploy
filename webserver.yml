@@ -1,5 +1,11 @@
 ---
 - hosts: web
+  connection: local
   become: true
   roles:
-   - webservers
+     - add-user-and-ssh-key
+     - docker-install
+     - deploy-drupal-container
+     - add-domain-name
+     - add-hostname-web
+
