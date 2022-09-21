@@ -1,11 +1,11 @@
 ---
-- name: deploy-drupal-container
-  community.docker.docker_image:
-    name: vladskvortsov/drupal
+- name: Deploy drupal container
+  docker_image:
     build:
       path: ./
       nocache: true
-#    pull: true
+      pull: true
+    name: vladskvortsov/drupal
     tag: latest
     source: build
     force_source: true

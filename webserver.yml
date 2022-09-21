@@ -3,9 +3,9 @@
   connection: local
   become: true
   roles:
-     - add-user-and-ssh-key
-     - docker-install
+#     - add-user-and-ssh-key
+#     - docker-install
      - deploy-drupal-container
-     - add-domain-name
-     - add-hostname-web
+#     - add-domain-name
+#     - add-hostname-web
 
