@@ -4,13 +4,12 @@
 #read -s dbpass
 
 apt-get update -y
-apt-get install -y sudo wget nano curl gpg apt-utils
+DEBIAN_FRONTEND="noninteractive"
+apt-get install -y sudo wget nano curl gpg apt-utils tzdata
 sudo add-apt-repository -y ppa:ondrej/php
 sudo add-apt-repository -y ppa:ondrej/nginx
 
 sudo apt-get install -y -q nginx
-
-sudo /etc/init.d/nginx start
 
 
 sudo apt-get update -y
@@ -21,7 +20,6 @@ sudo apt-get install -y php-cli php8.1-fpm php-json php-common php-mysql php-zip
 sudo apt-get install -y php-intl php-mbstring php-curl php-xml php-pear php-tidy
 sudo apt-get install -y php-soap php-bcmath php-xmlrpc
 
-sudo /etc/init.d/php8.1-fpm start
 #sudo mysql_secure_installation
 
 #sudo /etc/init.d/mariadb start
@@ -74,6 +72,10 @@ sudo echo 'server {
 
 #sed 's/127.0.0.1       localhost/127.0.0.1       localhost examp.com/g' /etc/hosts
 #sed "s/::1     localhost ip6-localhost ip6-loopback/::1     localhost examp.com www.examp.com ip6-examp.com ip6-localhost ip6-loopback/g" /etc/hosts
+
+sudo /etc/init.d/nginx start
+sudo /etc/init.d/php8.1-fpm start
+
 
 sudo /etc/init.d/php8.1-fpm reload
 sudo /etc/init.d/nginx reload

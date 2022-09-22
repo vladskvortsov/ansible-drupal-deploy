@@ -21,6 +21,11 @@ sudo apt-get install -y ansible
 
 sudo apt-get install -y ansible-core
 
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py --user
+python3 -m pip install --user ansible
+
+
 git clone https://github.com/vladskvortsov/ansible-drupal-deploy.git
 
 sudo ansible-playbook playbook.yml -i ~/ansible-drupal-deploy/hosts.ini -u root

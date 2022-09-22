@@ -1,28 +1,17 @@
 ---
-
-- name: Create a network with options
-  docker_network:
-    name: '{{ docker_network }}'
-
-
-
-
-
-
-
-
 - name: Deploy mysql container
   docker_container:
-        name: '{{ db_alias }}'
         image: mysql:8.0
+        name: '{{ db_alias }}'
+        state: started
         volumes:
           - '{{ docker_volume }}:/var/lib/mysql:rw'
-        restart: true
-#        networks:
-#          - name: "{{ docker_network }}"
+#       restart: true
+        networks:
+          - name: "{{ docker_network }}"
 #            ipv4_address: 192.168.56.4
-#            aliases:
-#              - "{{ db_alias }}"
+            aliases:
+              - "{{ db_alias }}"
         env:
           MYSQL_ROOT_PASSWORD: '{{ db_root_pass }}'
           MYSQL_DATABASE: '{{ db_name }}'

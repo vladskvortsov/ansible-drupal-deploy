@@ -1,3 +1,4 @@
 ---
 db_alias: db
 docker_network: drupal_net
+docker_volume: db_data

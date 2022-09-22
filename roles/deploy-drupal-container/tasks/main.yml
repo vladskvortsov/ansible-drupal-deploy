@@ -1,19 +1,45 @@
 ---
-- name: Deploy drupal container
+- name: Create a network  
+  docker_network:
+    name: '{{ docker_network }}'
+
+
+#    ipv4_address: 172.26.6.172
+
+- name: Create a volume
+  docker_volume:
+    name: '{{ docker_volume }}'
+
+
+
+
+
+
+
+
+- name: Build drupal image
   docker_image:
     build:
       path: ./
       nocache: true
       pull: true
-    name: vladskvortsov/drupal
+    name: vladskvortsov/drupal_nginx_no_db
     tag: latest
     source: build
     force_source: true
-#    state: started
+
+- name: Deploy drupal container
+  docker_container:
+    name: drupal
+    image: vladskvortsov/drupal_nginx_no_db:latest
+    state: started
+    restart: yes
+    ports:
+      - "80:80"
 #    networks:
-#      - name: "{{ docker_network }}"
-#        ipv4_address: 192.168.88.214
+#      - name: '{{ docker_network }}'
+#         ipv4_address: 172.26.6.172
 #        links:
-#          - "{{ db_alias }}"
-#    ports:
-#      - "80:80"
+#          - '{{ db_alias }}
+#         aliases:
+#          - drupal
