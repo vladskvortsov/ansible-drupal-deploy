@@ -1,17 +1,32 @@
 ---
+   
+
+- name: Create a network
+  docker_network:
+    name: "{{ docker_network }}"
+#    ipv4_address: 172.26.6.172
+
+
+- name: Create a volume
+  docker_volume:
+    name: "{{ docker_volume }}"
+
+
+
+
 - name: Deploy mysql container
   docker_container:
         image: mysql:8.0
-        name: '{{ db_alias }}'
+        name: "{{ db_alias }}"
         state: started
         volumes:
           - '{{ docker_volume }}:/var/lib/mysql:rw'
-#       restart: true
-        networks:
-          - name: "{{ docker_network }}"
-#            ipv4_address: 192.168.56.4
-            aliases:
-              - "{{ db_alias }}"
+        restart: true
+#        networks:
+#          - name: "{{ docker_network }}"
+#            ipv4_address: 172.26.6.172
+#            aliases:
+#              - "{{ db_alias }}"
         env:
           MYSQL_ROOT_PASSWORD: '{{ db_root_pass }}'
           MYSQL_DATABASE: '{{ db_name }}'

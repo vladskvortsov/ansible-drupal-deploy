@@ -1,22 +1,4 @@
 ---
-- name: Create a network  
-  docker_network:
-    name: '{{ docker_network }}'
-
-
-#    ipv4_address: 172.26.6.172
-
-- name: Create a volume
-  docker_volume:
-    name: '{{ docker_volume }}'
-
-
-
-
-
-
-
-
 - name: Build drupal image
   docker_image:
     build:
@@ -33,13 +15,13 @@
     name: drupal
     image: vladskvortsov/drupal_nginx_no_db:latest
     state: started
-    restart: yes
+#    restart: yes
     ports:
       - "80:80"
 #    networks:
-#      - name: '{{ docker_network }}'
-#         ipv4_address: 172.26.6.172
-#        links:
-#          - '{{ db_alias }}
-#         aliases:
+#      - name: "{{ docker_network }}"
+#        ipv4_address: 172.26.6.172
+    links:
+          - "{{ db_alias }}"
+#        aliases:
 #          - drupal

@@ -7,4 +7,11 @@ COPY *.sh /home/
 
 RUN bash drupal_install_nginx_no_db.sh
 
-RUN service nginx start && service php8.1-fpm start
+CMD ["php8.1-fpm", "-D"]
+
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+#RUN service nginx start && service php8.1-fpm start
