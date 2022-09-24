@@ -36,6 +36,7 @@ sudo wget https://www.drupal.org/download-latest/tar.gz -O drupal.tar.gz
 sudo tar -xvf drupal.tar.gz
 sudo mv drupal-*.* /var/www/html/drupal
 sudo cp /var/www/html/drupal/sites/default/default.settings.php /var/www/html/drupal/sites/default/settings.php
+sudo rm drupal.tar.gz
 
 sudo chown -R www-data:www-data /var/www/html/drupal/
 sudo chmod -R 755 /var/www/html/drupal/
@@ -76,6 +77,3 @@ sudo echo 'server {
 sudo /etc/init.d/nginx start
 sudo /etc/init.d/php8.1-fpm start
 
-
-sudo /etc/init.d/php8.1-fpm reload
-sudo /etc/init.d/nginx reload
