@@ -1,0 +1,22 @@
+---
+
+- name: Init docker swarm
+  docker_swarm:
+    state: present
+
+- name: Create overlay network
+  docker_network:
+    name: drupal-overlay-net
+    driver: overlay
+    attachable: yes
+    ipam_options:
+      subnet: 172.3.26.0/16
+      gateway: 172.3.26.1
+      iprange: 172.3.26.0/24
+#      aux_addresses:
+#           host1: 192.168.56.6
+
+- name: Get the worker join-token
+  shell: docker swarm join-token --quiet worker
+  register: worker_token
+  tags: swarm

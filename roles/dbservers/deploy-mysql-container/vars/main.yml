@@ -1,6 +1,0 @@
----
-db_root_pass: root
-db_name: drupal
-db_user: drupal
-db_pass: drupal
-docker_volume: db_data

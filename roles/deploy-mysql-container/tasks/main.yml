@@ -1,30 +1,26 @@
 ---
-   
-
-- name: Create a network
-  docker_network:
-    name: "{{ docker_network }}"
-#    ipv4_address: 172.26.6.172
-
 
 - name: Create a volume
   docker_volume:
     name: "{{ docker_volume }}"
 
 
-
-
 - name: Deploy mysql container
-  docker_container:
+  community.docker.docker_container: #  docker_container:
         image: mysql:8.0
         name: "{{ db_alias }}"
         state: started
         volumes:
           - '{{ docker_volume }}:/var/lib/mysql:rw'
-        restart: true
+        restart_policy: always
+        network_mode: drupal-overlay-net
+#        hostname: db
+#        default_host_ip: 192.168.56.9
+        ports:
+          - "3306:3306"
 #        networks:
-#          - name: "{{ docker_network }}"
-#            ipv4_address: 172.26.6.172
+#          - name: drupal-overlay-net
+#            ipv4_address: 172.3.26.6
 #            aliases:
 #              - "{{ db_alias }}"
         env:
@@ -32,3 +28,5 @@
           MYSQL_DATABASE: '{{ db_name }}'
           MYSQL_USER: '{{ db_user }}'
           MYSQL_PASSWORD: '{{ db_pass }}'
+#        command: ["sleep", "infinity"]
+

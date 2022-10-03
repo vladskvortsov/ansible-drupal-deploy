@@ -1,0 +1,13 @@
+---
+
+- hosts: web
+  become: true
+  connection: local 
+  roles:
+     - swarm-init
+
+
+- hosts: db
+  become: true
+  roles:
+     - swarm-add-worker

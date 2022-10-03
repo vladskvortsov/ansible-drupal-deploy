@@ -1,7 +1,0 @@
----
-    - name: Add server hostname
-      lineinfile:
-        path: /etc/hostname
-        state: present
-        regexp: '^#?*'
-        line: '"{{ server_hostname }}"'

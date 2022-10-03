@@ -4,7 +4,7 @@
 #  connection: local 
   roles:
 #     - add-user-and-ssh-key
-     - docker-install
+#     - docker-install
      - deploy-mysql-container
-     - add-hostname-db
+#     - add-hostname-db
 

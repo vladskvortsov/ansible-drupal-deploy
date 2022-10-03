@@ -1,4 +1,5 @@
 #main playbook
 ---
-- import_playbook: dbserver.yml
+- import_playbook: swarm.yml
 - import_playbook: webserver.yml
+- import_playbook: dbserver.yml

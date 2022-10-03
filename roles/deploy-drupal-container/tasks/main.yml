@@ -12,19 +12,22 @@
 #    source: build
 #    force_source: true
 
-
 - name: Deploy drupal container
   docker_container:
     name: drupal
     image: vladskvortsov/drupal_nginx_no_db:latest
+    pull: true
     state: started
-#    restart: yes
+    restart: yes
+    restart_policy: on-failure
+    network_mode: drupal-overlay-net
     ports:
       - "80:80"
 #    networks:
-#      - name: "{{ docker_network }}"
-#        ipv4_address: 172.26.6.172
+#      - name: drupal-overlay-net
+#        ipv4_address: 172.3.26.1
     links:
-          - 192.168.56.4:"{{ db_alias }}"
-#        aliases:
+      - db
+#         aliases:
 #          - drupal
+#    command: service php8.1-fpm start && service nginx start && sleep infinity
