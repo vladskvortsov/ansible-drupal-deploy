@@ -1,8 +1,28 @@
 ---
+#- name: Echo my_env_var
+#  shell: "echo $USER"
+#  register: current_user
 
 - name: Init docker swarm
   docker_swarm:
     state: present
+
+- name: Get the worker join-token
+  shell: docker swarm join-token --quiet worker
+  register: worker_token
+
+- name: Write worker join-token to a variable
+  lineinfile:
+      line: "worker_token: {{ worker_token.stdout }}"
+      path: "/home/osboxes/ansible-drupal-deploy/group_vars/all.yml"
+
+- name: Wait for worker join-token
+  ansible.builtin.wait_for:
+    state: present
+    path: "/home/osboxes/ansible-drupal-deploy/group_vars/all.yml"
+    search_regex: 'worker_token'
+  delegate_to: web
+
 
 - name: Create overlay network
   docker_network:
@@ -16,7 +36,3 @@
 #      aux_addresses:
 #           host1: 192.168.56.6
 
-- name: Get the worker join-token
-  shell: docker swarm join-token --quiet worker
-  register: worker_token
-  tags: swarm

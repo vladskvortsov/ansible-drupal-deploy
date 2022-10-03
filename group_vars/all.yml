@@ -2,4 +2,3 @@
 db_alias: db
 docker_network: drupal-overlay-net
 docker_volume: db_data
-worker_token: SWMTKN-1-0uxvzi5im2k11e7u6tr0yzaj6kv1terfded8wv5kjs2ydqbrcs-5fafmgs10rlfor61ykoqfyld5
