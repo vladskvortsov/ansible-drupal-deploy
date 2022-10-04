@@ -33,6 +33,3 @@
       subnet: 172.3.26.0/16
       gateway: 172.3.26.1
       iprange: 172.3.26.0/24
-#      aux_addresses:
-#           host1: 192.168.56.6
-

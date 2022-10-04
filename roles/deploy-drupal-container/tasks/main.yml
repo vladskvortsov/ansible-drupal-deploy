@@ -25,11 +25,6 @@
     network_mode: drupal-overlay-net
     ports:
       - "80:80"
-#    networks:
-#      - name: drupal-overlay-net
-#        ipv4_address: 172.3.26.1
     links:
       - db
-#         aliases:
-#          - drupal
-#    command: service php8.1-fpm start && service nginx start && sleep infinity
+#    command: service php8.1-fpm start && sleep infinity

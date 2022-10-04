@@ -74,6 +74,5 @@ sudo echo 'server {
 #sed 's/127.0.0.1       localhost/127.0.0.1       localhost examp.com/g' /etc/hosts
 #sed "s/::1     localhost ip6-localhost ip6-loopback/::1     localhost examp.com www.examp.com ip6-examp.com ip6-localhost ip6-loopback/g" /etc/hosts
 
-sudo /etc/init.d/nginx start
 sudo /etc/init.d/php8.1-fpm start
-
+sudo /etc/init.d/nginx start
