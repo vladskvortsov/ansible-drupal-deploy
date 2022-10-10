@@ -1,18 +1,26 @@
 ---
+#WEB
 
-#network vars
+domain_name: examp.com
+
+server_hostname: web
 
 web_public_ip: 192.168.56.3
-db_public_ip: 192.168.56.4
 
 
-docker_network: drupal-overlay-net
+
+#DB
+
+server_hostname: db
 
 db_alias: db
 
-#volumes
-
 docker_volume: db_data
 
-current_user: osboxes
- # $USER
+db_public_ip: 192.168.56.4
+
+
+#network vars
+
+docker_network: drupal-overlay-net
+

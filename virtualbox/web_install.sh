@@ -4,9 +4,13 @@ sudo echo '
 network:
   ethernets:
     enp0s3:
-     dhcp4: no
-     addresses: [192.168.56.3/24]
-     gateway4: 192.168.56.1
+      dhcp4: no
+      addresses: [192.168.56.3/24]
+      nameservers:
+       addresses: [8.8.8.8]
+      routes:
+      - to: default
+        via: 192.168.56.1
   version: 2
 ' > /etc/netplan/00-installer-config.yaml
 
@@ -17,7 +21,7 @@ sudo ssh-copy-id osboxes@192.168.56.4
 sudo ssh osboxes@192.168.56.4
 
 sudo apt-get update -y
-sudo apt-get install -y ansible
+sudo apt-get install -y ansible git
 
 
 
