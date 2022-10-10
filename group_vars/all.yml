@@ -3,7 +3,7 @@
 
 domain_name: examp.com
 
-server_hostname: web
+web_hostname: web
 
 web_public_ip: 192.168.56.3
 
@@ -11,7 +11,7 @@ web_public_ip: 192.168.56.3
 
 #DB
 
-server_hostname: db
+db_hostname: db
 
 db_alias: db
 

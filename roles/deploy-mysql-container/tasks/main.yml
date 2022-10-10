@@ -10,6 +10,8 @@
         image: mysql/mysql-server:8.0
         name: "{{ db_alias }}"
         state: started
+        healthcheck:
+         timeout: 5s
         volumes:
           - '{{ docker_volume }}:/var/lib/mysql:rw'
 #        restart_policy: always

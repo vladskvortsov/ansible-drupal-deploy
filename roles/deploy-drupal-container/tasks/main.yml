@@ -26,5 +26,7 @@
     networks:
      - name: drupal-overlay-net
        ipv4_address: 10.3.0.3
+       links: 
+           - db
     ports:
       - "80:80"

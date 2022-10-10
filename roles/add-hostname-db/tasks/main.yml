@@ -4,4 +4,4 @@
         path: /etc/hostname
         state: present
         regexp: '^#?'
-        line: '{{ server_hostname }}'
+        line: '{{ db_hostname }}'
