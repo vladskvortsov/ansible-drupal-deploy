@@ -5,7 +5,7 @@
 
 apt-get update -y
 DEBIAN_FRONTEND="noninteractive"
-apt-get install -y sudo wget nano curl gpg apt-utils tzdata
+apt-get install -y sudo wget nano curl gpg apt-utils iputils-ping tzdata
 sudo add-apt-repository -y ppa:ondrej/php
 sudo add-apt-repository -y ppa:ondrej/nginx
 

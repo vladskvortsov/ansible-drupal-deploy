@@ -1,4 +1,18 @@
 ---
-db_alias: db
+
+#network vars
+
+web_public_ip: 192.168.56.3
+db_public_ip: 192.168.56.4
+
+
 docker_network: drupal-overlay-net
+
+db_alias: db
+
+#volumes
+
 docker_volume: db_data
+
+current_user: osboxes
+ # $USER

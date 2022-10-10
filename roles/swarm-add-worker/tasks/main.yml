@@ -1,20 +1,18 @@
 ---
 
-- name: Sleep for 6 seconds and continue with play
-  ansible.builtin.wait_for:
-    timeout: 6
+- name: Add token variable
+  ansible.builtin.include_vars:
+    file: ./group_vars/worker-join-token.yml
 
 - name: Add workers to the swarm
   docker_swarm:
     state: join
-    advertise_addr: 192.168.56.4
+    advertise_addr: "{{ db_public_ip }}"
     join_token: "{{ worker_token }}"
-    remote_addrs: [ '192.168.56.3:2377' ]
+    remote_addrs: [ '{{ web_public_ip }}:2377' ]
 
-
-#- name: Clean token variable
-#  lineinfile:
-#      line: "worker_token:"
-#      path: "/home/osboxes/ansible-drupal-deploy/group_vars/all.yml"
-#      state: absent
-#  delegate_to: web
+- name: Clean token
+  file:
+    state: absent
+    path: ./group_vars/worker-join-token.yml
+  delegate_to: localhost

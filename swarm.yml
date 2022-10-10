@@ -6,7 +6,6 @@
   roles:
      - swarm-init
 
-
 - hosts: db
   become: true
   roles:

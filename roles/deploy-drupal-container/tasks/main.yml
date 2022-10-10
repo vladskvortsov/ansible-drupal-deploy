@@ -22,9 +22,11 @@
     state: started
     restart: yes
     restart_policy: on-failure
-    network_mode: drupal-overlay-net
+#    network_mode: drupal-overlay-net
+    networks:
+     - name: drupal-overlay-net
+       ipv4_address: 10.3.0.3
     ports:
       - "80:80"
-    links:
-      - db
-#    command: service php8.1-fpm start && sleep infinity
+#    links:
+#          - db
