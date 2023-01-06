@@ -7,20 +7,19 @@
 
 - name: Deploy mysql container
   community.docker.docker_container:
-        image: mysql/mysql-server:8.0
+        image: mysql:8.0
         name: "{{ db_alias }}"
+#        hostname: db
         state: started
-        healthcheck:
-         timeout: 5s
         volumes:
-          - '{{ docker_volume }}:/var/lib/mysql:rw'
+          - '{{ docker_volume }}:/usr/local/mysql'
 #        restart_policy: always
-        network_mode: drupal-overlay-net
-#        default_host_ip: 10.3.0.3
+#        network_mode: "{{ docker_network }}"
+#        default_host_ip: 10.3.0.4
 
-#        networks:
-#         - name: drupal-overlay-net
-#           ipv4_address: 10.3.0.3
+        networks:
+         - name: "{{ docker_network }}"
+#        ipv4_address: 10.3.0.3
 
         ports:
           - "3306:3306"
@@ -30,4 +29,3 @@
           MYSQL_USER: '{{ db_user }}'
           MYSQL_PASSWORD: '{{ db_pass }}'
 #        command: ["sleep", "infinity"]
-

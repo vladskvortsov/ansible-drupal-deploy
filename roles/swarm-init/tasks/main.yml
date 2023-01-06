@@ -14,14 +14,14 @@
 
 - name: Create overlay network
   docker_network:
-    name: drupal-overlay-net
+    name: "{{ docker_network }}"
     driver: overlay
     attachable: yes
     ipam_config:
      - subnet: 10.3.0.0/16
        gateway: 10.3.0.1
        iprange: 10.3.0.0/24
-       aux_addresses:
-         drupal: 10.3.0.3
-         db: 10.3.0.4
+#       aux_addresses:
+#         drupal: 10.3.0.3
+#         db: 10.3.0.4
 

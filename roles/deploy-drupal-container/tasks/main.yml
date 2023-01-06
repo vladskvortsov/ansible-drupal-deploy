@@ -1,6 +1,7 @@
 ---
 
 #Use this task if you wanna build image localy
+
 #- name: Build drupal image
 #  docker_image:
 #    build:
@@ -17,16 +18,16 @@
 - name: Deploy drupal container
   docker_container:
     name: drupal
-    image: vladskvortsov/drupal_nginx_no_db:latest
-    pull: true
+    image: drupal:latest
+#    pull: true
     state: started
-    restart: yes
-    restart_policy: on-failure
-#    network_mode: drupal-overlay-net
+#    restart: yes
+#    restart_policy: on-failure
+#    network_mode: "{{ docker_network }}"
     networks:
-     - name: drupal-overlay-net
-       ipv4_address: 10.3.0.3
-       links: 
-           - db
+     - name: "{{ docker_network }}"
+#       ipv4_address: 10.3.0.3
+       links:
+           - "{{ db_alias }}:{{ db_name }}"
     ports:
       - "80:80"
