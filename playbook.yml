@@ -5,8 +5,7 @@
   become: true
   roles:
      - add-user-and-ssh-key
-#     - docker-install
+     - docker-install
      - deploy-compose
      - add-domain-name
      - add-hostname-web
-
