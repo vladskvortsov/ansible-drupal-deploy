@@ -44,10 +44,10 @@ Put here [roles/add-user-and-ssh-key/vars/main.yml][user-var] name of sudo user 
 Put here [group_vars/all.yml][domain-var] your hosted domain name.
 
 
+### Own
+***
 
-
-To deploy your own project replace files in `project` directory with yours(including your docker-compose.yml file) and be free to run playbook.
-
+To deploy your own project replace files in `project` directory with yours(including your docker-compose.yml file) and be free to run a playbook.
 
 
 
