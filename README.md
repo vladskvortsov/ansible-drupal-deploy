@@ -44,4 +44,12 @@ Put here [roles/add-user-and-ssh-key/vars/main.yml][user-var] name of sudo user 
 Put here [group_vars/all.yml][domain-var] your hosted domain name.
 
 
+
+
 To deploy your own project replace files in `project` directory with yours(including your docker-compose.yml file) and be free to run playbook.
+
+
+
+
+[user-var]:<https://github.com/vladskvortsov/ansible-drupal-deploy/blob/master/roles/add-user-and-ssh-key/vars/main.yml>
+[domain-var]: <https://github.com/vladskvortsov/ansible-drupal-deploy/blob/master/group_vars/all.yml>
