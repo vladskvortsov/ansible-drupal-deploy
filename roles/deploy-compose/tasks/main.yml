@@ -1,0 +1,14 @@
+---
+    - name: Tear down existing services
+      docker_compose:
+        project_src: ./project/
+        state: absent
+
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_src: ./project/
+      register: output
+
+    - debug:
+        var: output
+

@@ -5,22 +5,4 @@ domain_name: examp.com
 
 web_hostname: web
 
-web_public_ip: 192.168.56.3
-
-
-
-#DB
-
-db_hostname: db
-
-db_alias: db
-
-docker_volume: db_data
-
-db_public_ip: 192.168.56.4
-
-
-#network vars
-
-docker_network: drupal-overlay-net
 

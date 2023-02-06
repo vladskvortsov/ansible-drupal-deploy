@@ -34,6 +34,16 @@
         state: latest
         update_cache: true
 
+    - name: Update apt and install docker-compose-plugin
+      apt:
+        name: docker-compose-plugin
+        state: latest
+        update_cache: true
+
     - name: Install Docker Module for Python
       pip:
         name: docker
+
+    - name: Install Docker-compose Module for Python
+      pip:
+        name: docker-compose

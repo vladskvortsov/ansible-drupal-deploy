@@ -1,5 +1,12 @@
 #main playbook
 ---
-- import_playbook: swarm.yml
-- import_playbook: dbserver.yml
-- import_playbook: webserver.yml
+- hosts: web
+  connection: local
+  become: true
+  roles:
+     - add-user-and-ssh-key
+#     - docker-install
+     - deploy-compose
+     - add-domain-name
+     - add-hostname-web
+
